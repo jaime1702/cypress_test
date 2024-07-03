@@ -1,0 +1,32 @@
+name: End-to-end tests
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v4
+
+      - name: Save Cypress artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/screenshots
+            cypress/reports
+            cypress-visual-report
+            cypress-visual-screenshots

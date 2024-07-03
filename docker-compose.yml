@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+  e2e:
+    container_name: cypress_test
+    working_dir: /e2e
+    entrypoint: cypress run --browser chrome
+    user: '${USER_INFO}'
+    volumes:
+      - './:/e2e'
+    image: 'cypress/included:latest'
