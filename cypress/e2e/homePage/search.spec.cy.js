@@ -11,6 +11,7 @@ describe('Home Page', () => {
 
   it('search for a country', () => {
     SearchActions.filter(Search.searchData);
+    SearchActions.searchButton();
     SearchActions.validateFilter(Search.searchData);
   });
 });
