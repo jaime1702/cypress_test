@@ -1,7 +1,7 @@
 export default {
   get searchData() {
     return {
-      country: 'Brasil',
+      country: 'Brazil',
     };
   },
 };
